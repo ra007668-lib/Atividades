@@ -1,0 +1,41 @@
+#somar tres numeros
+# entrada de daods
+a = int(input("valor 1: "))
+b = int(input("valor 2: "))
+c = int(input("valor 3: "))
+
+somar = a+b+c
+
+#escreva o total
+print("o valor e :",somar)
+
+
+def collatz_sequence():
+    # Solicita o número ao usuário
+    try:
+        n = int(input("Digite um número inteiro positivo: "))
+    except ValueError:
+        print("Por favor, digite um número inteiro válido.")
+        return
+
+    # Valida se o número é positivo
+    if n <= 0:
+        print("O número deve ser positivo.")
+        return
+
+    # Lista para armazenar a sequência e exibir no formato desejado
+    sequencia = [n]
+    
+    # Executa a lógica de Collatz até que n seja 1
+    while n > 1:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+        sequencia.append(n)
+        
+    # Exibe a sequência formatada com setas
+    print(" → ".join(map(str, sequencia)))
+
+if __name__ == "__main__":
+    collatz_sequence()
